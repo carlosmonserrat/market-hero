@@ -18,7 +18,7 @@ onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
  
 func _ready():
-  velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
  
 func _physics_process(delta):
 	match state:
@@ -30,6 +30,7 @@ func _physics_process(delta):
 			collect_state_right(delta)
 
 func move_state(delta):
+	animationState.travel("Idle")
 	rotation_dir = 0
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -50,22 +51,29 @@ func move_state(delta):
 		
 	if input_vector.y == 0:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-	
-	move(delta)
-	
+		
 	if Input.is_action_just_pressed("pick_left"):
 		state = COLLECT_LEFT
 		
 	if Input.is_action_just_pressed("pick_right"):
 		state = COLLECT_RIGHT
+		
+	move(delta)
 
 func move(delta):
 	rotation += rotation_dir * ROTATION_SPEED * delta
 	velocity = move_and_slide(velocity)
 	
 func collect_state_left(delta):
+	print("LEFT!")
 	animationState.travel("collectLeft")
+	rotation += rotation_dir * ROTATION_SPEED * delta
+	velocity = move_and_slide(velocity)
 	
 func collect_state_right(delta):
 	animationState.travel("collectRight")
+	rotation += rotation_dir * ROTATION_SPEED * delta
+	velocity = move_and_slide(velocity)
 
+func collectAnimationFinish():
+	state = MOVE

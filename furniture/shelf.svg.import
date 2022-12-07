@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/furny2.svg-d6ed19b8e486b6f5e0c74a4abee0295e.stex"
+path="res://.import/shelf.svg-65b25a2dfecadc4deefd3f62ce39b446.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://furniture/furny2.svg"
-dest_files=[ "res://.import/furny2.svg-d6ed19b8e486b6f5e0c74a4abee0295e.stex" ]
+source_file="res://furniture/shelf.svg"
+dest_files=[ "res://.import/shelf.svg-65b25a2dfecadc4deefd3f62ce39b446.stex" ]
 
 [params]
 
