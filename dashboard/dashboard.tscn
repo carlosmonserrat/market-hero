@@ -1,0 +1,14 @@
+[gd_scene format=2]
+
+[node name="Dashboard" type="Control"]
+margin_right = 143.0
+margin_bottom = 291.0
+
+[node name="Products" type="TextEdit" parent="."]
+margin_left = 11.0
+margin_top = 8.0
+margin_right = 143.0
+margin_bottom = 165.0
+custom_colors/background_color = Color( 1, 1, 1, 1 )
+custom_colors/completion_background_color = Color( 1, 1, 1, 1 )
+text = "Milk: "

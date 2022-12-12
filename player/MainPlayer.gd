@@ -65,7 +65,6 @@ func move(delta):
 	velocity = move_and_slide(velocity)
 	
 func collect_state_left(delta):
-	print("LEFT!")
 	animationState.travel("collectLeft")
 	rotation += rotation_dir * ROTATION_SPEED * delta
 	velocity = move_and_slide(velocity)
