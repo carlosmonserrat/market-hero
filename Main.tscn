@@ -13,10 +13,47 @@ extents = Vector2( 700, 10 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 473.297, 10 )
 
-[node name="MainNode" type="Node2D"]
+[node name="Game" type="Node2D"]
 script = ExtResource( 6 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="market" type="Node2D" parent="."]
+
+[node name="wall" type="StaticBody2D" parent="market"]
+position = Vector2( 509, -118 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="market/wall"]
+position = Vector2( 186, 0 )
+shape = SubResource( 5 )
+
+[node name="wall2" type="StaticBody2D" parent="market"]
+position = Vector2( 679, 809 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="market/wall2"]
+shape = SubResource( 5 )
+
+[node name="wall3" type="StaticBody2D" parent="market"]
+position = Vector2( -59, 225 )
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="market/wall3"]
+position = Vector2( 117.297, -47 )
+shape = SubResource( 6 )
+
+[node name="wall4" type="StaticBody2D" parent="market"]
+position = Vector2( -59, 225 )
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="market/wall4"]
+position = Vector2( 123, -1447 )
+shape = SubResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="market"]
 margin_left = 1.0
 margin_top = -112.0
 margin_right = 1376.0
@@ -36,41 +73,6 @@ position = Vector2( 1296, 742 )
 position = Vector2( 7, 0 )
 remote_path = NodePath("../../Camera2D")
 
-[node name="wall" type="StaticBody2D" parent="."]
-position = Vector2( 509, -118 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
-position = Vector2( 186, 0 )
-shape = SubResource( 5 )
-
-[node name="wall2" type="StaticBody2D" parent="."]
-position = Vector2( 679, 809 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
-shape = SubResource( 5 )
-
-[node name="wall3" type="StaticBody2D" parent="."]
-position = Vector2( -59, 225 )
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall3"]
-position = Vector2( 117.297, -47 )
-shape = SubResource( 6 )
-
-[node name="wall4" type="StaticBody2D" parent="."]
-position = Vector2( -59, 225 )
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wall4"]
-position = Vector2( 123, -1447 )
-shape = SubResource( 6 )
-
 [node name="Shelf" parent="." instance=ExtResource( 1 )]
 position = Vector2( 714, 373 )
 
@@ -83,33 +85,62 @@ position = Vector2( 311, 361 )
 [node name="Shelf4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 314, 175 )
 
-[node name="Fridge" parent="." instance=ExtResource( 4 )]
-position = Vector2( 302, 27 )
+[node name="MilkFridge" type="Node2D" parent="."]
+position = Vector2( 286, 53 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="Milk" parent="." instance=ExtResource( 3 )]
-position = Vector2( 328, 28.0001 )
+[node name="Fridge" parent="MilkFridge" instance=ExtResource( 4 )]
+
+[node name="Milk1" parent="MilkFridge" instance=ExtResource( 3 )]
+position = Vector2( 18.0001, 1.00002 )
 rotation = 0.404892
 scale = Vector2( 0.52, 0.52 )
 
-[node name="Milk3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 293, 26 )
+[node name="Milk2" parent="MilkFridge" instance=ExtResource( 3 )]
+position = Vector2( -16.9999, 0.999979 )
 rotation = -0.380482
 scale = Vector2( 0.52, 0.52 )
 
-[node name="Milk2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 257, 29.9999 )
+[node name="Milk3" parent="MilkFridge" instance=ExtResource( 3 )]
+position = Vector2( -53, 0.999979 )
 rotation = -0.267743
 scale = Vector2( 0.52, 0.52 )
 
-[node name="Milk4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 360, 30 )
+[node name="Milk4" parent="MilkFridge" instance=ExtResource( 3 )]
+position = Vector2( 50.0001, 1 )
+rotation = 0.010472
+scale = Vector2( 0.52, 0.52 )
+
+[node name="MilkFridge2" type="Node2D" parent="."]
+position = Vector2( 281, 523 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Fridge" parent="MilkFridge2" instance=ExtResource( 4 )]
+
+[node name="Milk1" parent="MilkFridge2" instance=ExtResource( 3 )]
+position = Vector2( 18.0001, 1.00002 )
+rotation = 0.404892
+scale = Vector2( 0.52, 0.52 )
+
+[node name="Milk2" parent="MilkFridge2" instance=ExtResource( 3 )]
+position = Vector2( -16.9999, 0.999979 )
+rotation = -0.380482
+scale = Vector2( 0.52, 0.52 )
+
+[node name="Milk3" parent="MilkFridge2" instance=ExtResource( 3 )]
+position = Vector2( -53, 0.999979 )
+rotation = -0.267743
+scale = Vector2( 0.52, 0.52 )
+
+[node name="Milk4" parent="MilkFridge2" instance=ExtResource( 3 )]
+position = Vector2( 50.0001, 1 )
 rotation = 0.010472
 scale = Vector2( 0.52, 0.52 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Dashboard" parent="CanvasLayer" instance=ExtResource( 5 )]
-margin_left = 1290.0
-margin_top = 1.0
-margin_right = 1330.0
-margin_bottom = 41.0
