@@ -1,13 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://dashboard/dashboard.gd" type="Script" id=1]
 
 [node name="Dashboard" type="Control"]
-margin_right = 143.0
-margin_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource( 1 )
 
-[node name="Products" type="TextEdit" parent="."]
-margin_top = 648.0
-margin_right = 1329.0
-margin_bottom = 709.0
-custom_colors/background_color = Color( 1, 1, 1, 1 )
-custom_colors/completion_background_color = Color( 1, 1, 1, 1 )
-text = "Milk: "
+[node name="TextEdit" type="TextEdit" parent="."]
+text = "Milk:"
